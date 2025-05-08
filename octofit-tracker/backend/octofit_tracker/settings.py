@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-73w%g0%a5oiahj&z)r0dw+czkcf+on6&ehhjojhz6vs4ykx_6#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'turbo-carnival-qvvgq6qg4xh466g-8000.app.github.dev']
 
 
 # Application definition

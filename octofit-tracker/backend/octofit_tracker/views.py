@@ -6,12 +6,16 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    codespace_url = 'https://turbo-carnival-qvvgq6qg4xh466g-8000.app.github.dev/'
+    local_url = 'http://localhost:8000/'
+    # 判断请求来源，优先返回 codespace url
+    base_url = codespace_url if 'turbo-carnival-qvvgq6qg4xh466g-8000.app.github.dev' in request.get_host() else local_url
     return Response({
-        'users': 'api/users/',
-        'teams': 'api/teams/',
-        'activities': 'api/activities/',
-        'leaderboard': 'api/leaderboard/',
-        'workouts': 'api/workouts/',
+        'users': base_url + 'api/users/?format=api',
+        'teams': base_url + 'api/teams/?format=api',
+        'activities': base_url + 'api/activities/?format=api',
+        'leaderboard': base_url + 'api/leaderboard/?format=api',
+        'workouts': base_url + 'api/workouts/?format=api'
     })
 
 class UserViewSet(viewsets.ModelViewSet):
